@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>地球 Online</title>
+    <link rel="stylesheet" href="./styles.css?v=reality-sim-20260602" />
+  </head>
+  <body>
+    <main class="shell" aria-label="地球 Online 宿命选择终端">
+      <header class="topbar">
+        <section class="bureau" aria-label="世界管理局">
+          <span class="mark" aria-hidden="true"></span>
+          <div>
+            <p class="cn">世界管理局</p>
+            <p class="en">WORLD ADMINISTRATION BUREAU</p>
+          </div>
+        </section>
+        <section class="title-block">
+          <h1>地球 Online</h1>
+          <p>每个人都可以选择宿命，没人能更改结局</p>
+        </section>
+        <section class="status-grid" aria-label="运行状态">
+          <div>
+            <span>人口总数</span>
+            <strong id="population">8,090,230,142</strong>
+          </div>
+          <div>
+            <span>地球时间</span>
+            <strong id="earthTime">2026.05.25 20:41:00</strong>
+          </div>
+          <div class="system-level">
+            <span>系统等级</span>
+            <strong>L-0</strong>
+          </div>
+        </section>
+      </header>
+
+      <section class="game-grid">
+        <aside class="panel fate-panel" aria-label="宿命列表">
+          <div class="panel-heading">
+            <div>
+              <h2 id="choiceTitle">选择你的宿命</h2>
+              <p id="choiceSubtitle">选择后将刻入人生，无法更改</p>
+            </div>
+            <span id="selectState">待选择</span>
+          </div>
+          <section class="chapter-brief" aria-label="当前现实背景">
+            <span id="chapterKicker">出生参数</span>
+            <h3 id="chapterTitle">现实正在分配</h3>
+            <p id="chapterSummary">你不会从空白开始。城市、家庭、身体和钱，会先于你的选择抵达。</p>
+            <ul id="chapterFacts"></ul>
+          </section>
+          <div class="fate-list" id="fateList"></div>
+          <div class="hint-line">
+            <span aria-hidden="true">i</span>
+            <p id="hintText">提示：宿命一经选择，将同步至世界线，永久生效。</p>
+          </div>
+        </aside>
+
+        <section class="world-panel" aria-label="地球世界线">
+          <canvas id="worldCanvas" width="960" height="640"></canvas>
+          <div class="world-overlay">
+            <div class="run-state">
+              <span>运行状态</span>
+              <strong id="runState">不可逆</strong>
+            </div>
+            <div class="world-note" id="worldNote">你的一生，早已在系统中生成。</div>
+          </div>
+
+          <section class="life-progress" aria-label="人生进度">
+            <div class="meter-label">
+              <span>人生进度</span>
+              <strong id="lifeValue">0.0%</strong>
+            </div>
+            <div class="meter" aria-hidden="true">
+              <span id="lifeBar"></span>
+            </div>
+            <p id="lifeWarning">警告：无人能抵达 100%，结局会自行抵达你。</p>
+          </section>
+
+          <section class="actions" aria-label="宿命操作">
+            <button class="secondary" id="escapeBtn" type="button">
+              <span class="button-icon" aria-hidden="true">⌁</span>
+              <span>挣脱</span>
+              <small id="escapeRate">成功率 0.0001%</small>
+            </button>
+            <button class="primary" id="chooseBtn" type="button">
+              <span class="button-icon" aria-hidden="true">✓</span>
+              <span>选择宿命</span>
+              <small>确认并进入人生</small>
+            </button>
+            <button class="secondary" id="rebirthBtn" type="button">
+              <span class="button-icon" aria-hidden="true">↻</span>
+              <span>重开人生</span>
+              <small id="rebirthLeft">剩余次数 3 次</small>
+            </button>
+          </section>
+        </section>
+
+        <aside class="right-stack">
+          <section class="panel reality-panel" aria-label="现实档案">
+            <div class="panel-heading">
+              <div>
+                <h2>现实档案</h2>
+                <p>世界线的生活痕迹</p>
+              </div>
+              <span id="realityState">未锁定</span>
+            </div>
+            <div id="profileSummary" class="profile-summary"></div>
+            <div id="lifeStats" class="life-stats"></div>
+            <ol id="lifeFragments" class="life-fragments"></ol>
+          </section>
+
+          <section class="panel log-panel" aria-label="宿命日志">
+            <div class="panel-heading">
+              <div>
+                <h2>宿命日志</h2>
+                <p>已记录于世界线</p>
+              </div>
+              <span class="record-dot" aria-hidden="true"></span>
+            </div>
+            <ol id="fateLog" class="fate-log"></ol>
+          </section>
+
+          <section class="panel constraint-panel" aria-label="人生时间线">
+            <div class="panel-heading">
+              <div>
+                <h2 id="timelineTitle">人生时间线</h2>
+                <p id="timelineSubtitle">节点尚未生成</p>
+              </div>
+            </div>
+            <ul id="constraints" class="constraints"></ul>
+            <div class="warning-strip" id="endingPanel">警告：所有约束永久生效，无法解除。</div>
+          </section>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        <span>连接状态：稳定</span>
+        <span id="endingText">出生分配器等待确认。</span>
+        <span>按 F 全屏</span>
+      </footer>
+    </main>
+
+    <script src="./app.js?v=reality-sim-20260602"></script>
+  </body>
+</html>
