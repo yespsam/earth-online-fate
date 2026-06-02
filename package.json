@@ -1,0 +1,17 @@
+{
+  "name": "earth-online-fate",
+  "version": "1.0.0",
+  "description": "A fatalistic Earth Online mini-game site.",
+  "main": "app.js",
+  "scripts": {
+    "start": "python3 -m http.server 4173",
+    "test": "node /Users/qohfq/.codex/skills/develop-web-game/scripts/web_game_playwright_client.js --url http://localhost:4173 --actions-json '{\"steps\":[{\"buttons\":[\"enter\"],\"frames\":4},{\"buttons\":[],\"frames\":20}]}' --iterations 1 --pause-ms 200 --screenshot-dir /tmp/earth-online-fate-web-game-npm-test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}
